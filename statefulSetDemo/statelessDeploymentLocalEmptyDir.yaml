@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: statelessdemo
+  labels:
+    app: demo1deployment
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: demo1pod
+  template:
+    metadata:
+      labels:
+        app: demo1pod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - mountPath: /data
+          name: cache-volume
+      volumes:
+      - name: cache-volume
+        emptyDir:
+          sizeLimit: 500Mi
