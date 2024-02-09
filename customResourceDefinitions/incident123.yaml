@@ -1,0 +1,7 @@
+apiVersion: "stable.example.com/v1"
+kind: Incident
+metadata:
+  name: incident123
+spec:
+  incidentDescription: "A big old emergency just happened"
+  severity: 1
